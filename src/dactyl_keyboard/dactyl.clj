@@ -12,7 +12,7 @@
 ;; Shape parameters ;;
 ;;;;;;;;;;;;;;;;;;;;;;
 
-(def nrows 4)
+(def nrows 5)
 (def ncols 6)
 
 (def α (/ π 12))                        ; curvature of the columns
@@ -23,9 +23,9 @@
 (def column-style
   (if (> nrows 5) :orthographic :standard))  ; options include :standard, :orthographic, and :fixed
 ; (def column-style :fixed)
-(def pinky-15u false)
+(def pinky-15u true)
 
-(def thumb-count :three)                ; could also be :five
+(def thumb-count :five)                ; could also be :five
 
 (defn column-offset [column] (cond
                                (= column 2) [0 2.82 -4.5]
@@ -767,7 +767,6 @@
 (spit "things/right.scad"
       (write-scad model-right))
 
-#_
 (spit "things/left.scad"
       (write-scad (mirror [-1 0 0] model-right)))
 
@@ -788,7 +787,6 @@
 
         (translate [0 0 -20] (cube 350 350 40)))))
 
-#_
 (spit "things/right-plate.scad"
       (write-scad
        (cut
